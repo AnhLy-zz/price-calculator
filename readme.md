@@ -14,7 +14,10 @@ and newcomers to the industry.
 [roadmap](https://github.com/kriasoft/react-starter-kit/projects/1) &nbsp;|&nbsp;
 **Join** [#react-starter-kit][chat] chat room on Gitter &nbsp;|&nbsp;
 **Visit our sponsors**:<br><br>
-
+ 
+ 
+ 
+ 
 <p align="center" align="top">
   <a href="https://rollbar.com/?utm_source=reactstartkit(github)&amp;utm_medium=link&amp;utm_campaign=reactstartkit(github)"><img src="https://koistya.github.io/files/rollbar-362x72.png" height="36" align="top" /></a>
   <a href="https://x-team.com/hire-react-developers/?utm_source=reactstarterkit&amp;utm_medium=github-link&amp;utm_campaign=reactstarterkit-june"><img src="https://koistya.github.io/files/xteam-255x72.png" height="36" align="top" /></a>
