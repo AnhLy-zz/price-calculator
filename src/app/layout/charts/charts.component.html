@@ -1,76 +1,113 @@
 <div [@routerTransition]>
     <app-page-header [heading]="'Charts'" [icon]="'fa-bar-chart-o'"></app-page-header>
+
     <div class="row">
-        <div class="col col-sm-6">
+        <div class="col col-sm-4">
             <div class="card mb-3">
                 <div class="card-header">
-                    Bar Chart
+                    Arm Chair
                 </div>
                 <div class="card-body">
-                    <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-                    </canvas>
-                </div>
-                <div class="card-footer">
-                    <button class="btn btn-info btn-sm" (click)="randomize()">Update</button>
+                    <img src="../../../assets/images/sofa-type/Airm chair.JPG" alt="">
                 </div>
             </div>
         </div>
-        <div class="col col-sm-6">
+        <div class="col col-sm-4">
             <div class="card mb-3">
                 <div class="card-header">
-                    Doughnut Chart
+                    Arc Sofa
                 </div>
                 <div class="card-body">
-                    <canvas baseChart height="180px" [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-                    </canvas>
+                    <img src="../../../assets/images/sofa-type/Arc sofa.JPG" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="col col-sm-4">
+            <div class="card mb-3">
+                <div class="card-header">
+                    Corner Sofa
+                </div>
+                <div class="card-body">
+                    <img src="../../../assets/images/sofa-type/Corner sofa.JPG" alt="">
                 </div>
             </div>
         </div>
     </div>
+
     <div class="row">
-        <div class="col col-sm-6">
+        <div class="col col-sm-4">
             <div class="card mb-3">
                 <div class="card-header">
-                    Radar Chart
+                    Footstool
                 </div>
                 <div class="card-body">
-                    <canvas baseChart height="150px" [datasets]="radarChartData" [labels]="radarChartLabels" [chartType]="radarChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-                    </canvas>
+                    <img src="../../../assets/images/sofa-type/Footstool.JPG" alt="">
                 </div>
             </div>
         </div>
-        <div class="col col-sm-6">
+        <div class="col col-sm-4">
             <div class="card mb-3">
                 <div class="card-header">
-                    Pie Chart
+                    Recliner
                 </div>
                 <div class="card-body">
-                    <canvas baseChart height="150px" [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-                    </canvas>
+                    <img src="../../../assets/images/sofa-type/Recliner.JPG" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="col col-sm-4">
+            <div class="card mb-3">
+                <div class="card-header">
+                    Sofa Bed
+                </div>
+                <div class="card-body">
+                    <img src="../../../assets/images/sofa-type/Sofa bed.JPG" alt="">
                 </div>
             </div>
         </div>
     </div>
+   
     <div class="row">
-        <div class="col col-sm-6">
+        <div class="col col-sm-4">
             <div class="card mb-3">
                 <div class="card-header">
-                    Polar Area Chart
+                    Three Seater Recliner
                 </div>
                 <div class="card-body">
-                    <canvas baseChart height="130px" [data]="polarAreaChartData" [labels]="polarAreaChartLabels" [legend]="polarAreaLegend" [chartType]="polarAreaChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-                    </canvas>
+                    <img src="../../../assets/images/sofa-type/Three seater reliner.JPG" alt="">
                 </div>
             </div>
         </div>
-        <div class="col col-sm-6">
+        <div class="col col-sm-4">
             <div class="card mb-3">
                 <div class="card-header">
-                    Line Chart
+                    Three Seater Sofa
                 </div>
                 <div class="card-body">
-                    <canvas baseChart height="130" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-                    </canvas>
+                    <img src="../../../assets/images/sofa-type/Three seater sofa.JPG" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="col col-sm-4">
+            <div class="card mb-3">
+                <div class="card-header">
+                    Two Seater Sofa
+                </div>
+                <div class="card-body">
+                    <img src="../../../assets/images/sofa-type/Two seater sofa.JPG" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col col-sm-4">
+            <div class="card mb-3">
+                <div class="card-header">
+                    Two Seater Recliner
+                </div>
+                <div class="card-body">
+                    <img src="../../../assets/images/sofa-type/Two seater recliner.JPG" alt="">
                 </div>
             </div>
         </div>
