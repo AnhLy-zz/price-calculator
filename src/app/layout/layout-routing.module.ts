@@ -10,6 +10,7 @@ const routes: Routes = [
             { path: '', redirectTo: 'charts' },
             { path: 'charts', loadChildren: './charts/charts.module#ChartsModule' },
             { path: 'tables', loadChildren: './tables/tables.module#TablesModule' },
+            { path: 'detail/:id', loadChildren: './bs-element/bs-element.module#BsElementModule'}
         ]
     }
 ];

@@ -1,115 +1,114 @@
 <div [@routerTransition]>
-    <app-page-header [heading]="'Charts'" [icon]="'fa-bar-chart-o'"></app-page-header>
-
+  <app-page-header [heading]="'Charts'" [icon]="'fa-bar-chart-o'"></app-page-header>
     <div class="row">
-        <div class="col col-sm-4">
-            <div class="card mb-3">
-                <div class="card-header">
-                    Arm Chair
-                </div>
-                <div class="card-body">
-                    <img src="../../../assets/images/sofa-type/Airm chair.JPG" alt="">
-                </div>
-            </div>
+      <div class="col col-sm-4">
+        <div class="card mb-3">
+          <div class="card-header">
+            SOFA ĐƠN
+          </div>
+          <div class="card-body">
+            <img src="../../../assets/images/sofa-type/Airm chair.JPG" [routerLink]="['/detail', 1]" [routerLinkActive]="['router-link-active']">
+          </div>
         </div>
-        <div class="col col-sm-4">
-            <div class="card mb-3">
-                <div class="card-header">
-                    Arc Sofa
-                </div>
-                <div class="card-body">
-                    <img src="../../../assets/images/sofa-type/Arc sofa.JPG" alt="">
-                </div>
-            </div>
+      </div>
+      <div class="col col-sm-4">
+        <div class="card mb-3">
+          <div class="card-header">
+            SOFA VÒNG CUNG
+          </div>
+          <div class="card-body">
+            <img src="../../../assets/images/sofa-type/Arc sofa.JPG" [routerLink]="['/detail', 2]" [routerLinkActive]="['router-link-active']">
+          </div>
         </div>
-        <div class="col col-sm-4">
-            <div class="card mb-3">
-                <div class="card-header">
-                    Corner Sofa
-                </div>
-                <div class="card-body">
-                    <img src="../../../assets/images/sofa-type/Corner sofa.JPG" alt="">
-                </div>
-            </div>
+      </div>
+      <div class="col col-sm-4">
+        <div class="card mb-3">
+          <div class="card-header">
+            SOFA GÓC
+          </div>
+          <div class="card-body">
+            <img src="../../../assets/images/sofa-type/Corner sofa.JPG" [routerLink]="['/detail', 3]" [routerLinkActive]="['router-link-active']">
+          </div>
         </div>
+      </div>
     </div>
 
     <div class="row">
-        <div class="col col-sm-4">
-            <div class="card mb-3">
-                <div class="card-header">
-                    Footstool
-                </div>
-                <div class="card-body">
-                    <img src="../../../assets/images/sofa-type/Footstool.JPG" alt="">
-                </div>
-            </div>
+      <div class="col col-sm-4">
+        <div class="card mb-3">
+          <div class="card-header">
+            GHẾ ĐÔN
+          </div>
+          <div class="card-body">
+            <img src="../../../assets/images/sofa-type/Footstool.JPG" [routerLink]="['/detail', 4]" [routerLinkActive]="['router-link-active']">
+          </div>
         </div>
-        <div class="col col-sm-4">
-            <div class="card mb-3">
-                <div class="card-header">
-                    Recliner
-                </div>
-                <div class="card-body">
-                    <img src="../../../assets/images/sofa-type/Recliner.JPG" alt="">
-                </div>
-            </div>
+      </div>
+      <div class="col col-sm-4">
+        <div class="card mb-3">
+          <div class="card-header">
+            GHẾ THƯ GIẢN ĐƠN
+          </div>
+          <div class="card-body">
+            <img src="../../../assets/images/sofa-type/Recliner.JPG" [routerLink]="['/detail', 5]" [routerLinkActive]="['router-link-active']">
+          </div>
         </div>
-        <div class="col col-sm-4">
-            <div class="card mb-3">
-                <div class="card-header">
-                    Sofa Bed
-                </div>
-                <div class="card-body">
-                    <img src="../../../assets/images/sofa-type/Sofa bed.JPG" alt="">
-                </div>
-            </div>
+      </div>
+      <div class="col col-sm-4">
+        <div class="card mb-3">
+          <div class="card-header">
+            Sofa Bed
+          </div>
+          <div class="card-body">
+            <img src="../../../assets/images/sofa-type/Sofa bed.JPG" [routerLink]="['/detail', 6]" [routerLinkActive]="['router-link-active']">
+          </div>
         </div>
-    </div>
-   
-    <div class="row">
-        <div class="col col-sm-4">
-            <div class="card mb-3">
-                <div class="card-header">
-                    Three Seater Recliner
-                </div>
-                <div class="card-body">
-                    <img src="../../../assets/images/sofa-type/Three seater reliner.JPG" alt="">
-                </div>
-            </div>
-        </div>
-        <div class="col col-sm-4">
-            <div class="card mb-3">
-                <div class="card-header">
-                    Three Seater Sofa
-                </div>
-                <div class="card-body">
-                    <img src="../../../assets/images/sofa-type/Three seater sofa.JPG" alt="">
-                </div>
-            </div>
-        </div>
-        <div class="col col-sm-4">
-            <div class="card mb-3">
-                <div class="card-header">
-                    Two Seater Sofa
-                </div>
-                <div class="card-body">
-                    <img src="../../../assets/images/sofa-type/Two seater sofa.JPG" alt="">
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
 
     <div class="row">
-        <div class="col col-sm-4">
-            <div class="card mb-3">
-                <div class="card-header">
-                    Two Seater Recliner
-                </div>
-                <div class="card-body">
-                    <img src="../../../assets/images/sofa-type/Two seater recliner.JPG" alt="">
-                </div>
-            </div>
+      <div class="col col-sm-4">
+        <div class="card mb-3">
+          <div class="card-header">
+            GHẾ THƯ GIẢN BA
+          </div>
+          <div class="card-body">
+            <img src="../../../assets/images/sofa-type/Three seater reliner.JPG" [routerLink]="['/detail', 7]" [routerLinkActive]="['router-link-active']">
+          </div>
         </div>
+      </div>
+      <div class="col col-sm-4">
+        <div class="card mb-3">
+          <div class="card-header">
+            SOFA BĂNG BA
+          </div>
+          <div class="card-body">
+            <img src="../../../assets/images/sofa-type/Three seater sofa.JPG" [routerLink]="['/detail', 8]" [routerLinkActive]="['router-link-active']">
+          </div>
+        </div>
+      </div>
+      <div class="col col-sm-4">
+        <div class="card mb-3">
+          <div class="card-header">
+            SOFA ĐÔI
+          </div>
+          <div class="card-body">
+            <img src="../../../assets/images/sofa-type/Two seater sofa.JPG" [routerLink]="['/detail', 9]" [routerLinkActive]="['router-link-active']">
+          </div>
+        </div>
+      </div>
     </div>
-</div>
+
+    <div class="row">
+      <div class="col col-sm-4">
+        <div class="card mb-3">
+          <div class="card-header">
+            GHẾ THƯ GIẢN ĐÔI
+          </div>
+          <div class="card-body">
+            <img src="../../../assets/images/sofa-type/Two seater recliner.JPG" [routerLink]="['/detail', 10]" [routerLinkActive]="['router-link-active']">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
