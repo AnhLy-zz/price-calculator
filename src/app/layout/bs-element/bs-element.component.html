@@ -11,103 +11,140 @@
         </div>
       </div>
     </div>
-    <div *ngIf="!isRecliner()" class="col col-sm-8">
+    <div class="col col-sm-8">
       <div class="card mb-3" style="height: 1000px;">
         <div class="card-header">
           CHỌN TÍNH THEO YÊU CẦU
         </div>
         <div class="card-body">
-          <div class="row">
-            <div class="col col-sm-2">THÔNG TIN YÊU CẦU NHẬP </div>
-            <div class="col col-sm-10">
-              <form role="form">
-                <fieldset class="form-group">
-                  <label>Chiều dài băng ngồi (mm)
-                    <span style="color:red">*</span>
-                  </label>
-                  <input class="form-control" type="number" [(ngModel)]="length" name="lengthOfSofa">
-                  <p class="help-block">ĐÔN NHẬP CHIỀU DÀI NHẤT</p>
-                </fieldset>
-              </form>
+          <div *ngIf="!isRecliner()">
+            <div class="row">
+              <div class="col col-sm-2">THÔNG TIN YÊU CẦU NHẬP </div>
+              <div class="col col-sm-10">
+                <form role="form">
+                  <fieldset class="form-group">
+                    <label>Chiều dài băng ngồi (mm)
+                      <span style="color:red">*</span>
+                    </label>
+                    <input class="form-control" type="number" [(ngModel)]="length" name="lengthOfSofa">
+                    <p class="help-block">ĐÔN NHẬP CHIỀU DÀI NHẤT</p>
+                  </fieldset>
+                </form>
+  
+                <form role="form">
+                  <fieldset class="form-group">
+                    <label>Chiều dài băng thư giản/ sâu ngồi (mm)
+                      <span style="color:red">*</span>
+                    </label>
+                    <input class="form-control" type="number" [(ngModel)]="width" name="widthOfSofa">
+                    <p class="help-block">BĂNG/ĐƠN/VÒNG CUNG/BED=
+                      <850 NHẬP 0, BĂNG/ĐƠN/ VÒNG CUNG/BED> 850 NHẬP CHÊNH LỆCH; ĐÔN =
+                        <45 NHẬP 0, ĐÔN>45 NHẬP CHÊNH LỆCH</p>
+                  </fieldset>
+                </form>
+              </div>
+            </div>
+            <hr style="height:1px;border:none;background-color:#dfdfdf;" />
+            <div class="row">
+              <div class="col col-sm-2">TỶ LỆ ĐỘ KHÓ </div>
+              <div class="col col-sm-10">
+                <input type="radio" name="b1" value="3.75" (change)="updateDifficult($event)"> Mẫu có sẵn thay đổi KT/ Mẫu mới tương tự 80% với mẫu có sẵn
+                <br>
+                <input type="radio" name="b1" value="4" (change)="updateDifficult($event)"> Mẫu mới có kiểu dáng đơn giản và không có nhiều chi tiết nhấn rút
+                <br>
+                <input type="radio" name="b1" value="4.125" (change)="updateDifficult($event)"> Mẫu mới có kiểu dáng tương đối đơn giản, nhiều chi tiết nhấn rút/ phụ kiện
+                <br>
+                <input type="radio" name="b1" value="4.250" (change)="updateDifficult($event)"> Mẫu mới có độ khó cao, nhiều chi tiết nhấn rút/ phụ kiện
+                <br>
+                <input type="radio" name="b1" value="4.375" (change)="updateDifficult($event)"> Mẫu mới rất khó, cầu kì, nhiều chi tiết nhấn rút/ phụ kiện
+                <br>
+              </div>
+            </div>
+            <hr style="height:1px;border:none;background-color:#dfdfdf;" />
+  
+            <div class="row">
+              <div class="col col-sm-2">CHẤT LIỆU CHÍNH</div>
+              <div class="col col-sm-10">
+                <input type="radio" name="c1" value="1" (change)="updateMaterial($event)"> Simili/ Vải thông thường
+                <br>
+                <input type="radio" name="c1" value="1.1" (change)="updateMaterial($event)"> Simili/ Vải cao cấp
+                <br>
+                <input type="radio" name="c1" value="2.0" (change)="updateMaterial($event)"> Da bò tiếp xúc thông thường
+                <br>
+                <input type="radio" name="c1" value="2.2" (change)="updateMaterial($event)"> Da bò tiếp xúc cao cấp
+                <br>
+                <input type="radio" name="c1" value="3" (change)="updateMaterial($event)"> Toàn bộ da bò thông thường
+                <br>
+                <input type="radio" name="c1" value="3.3" (change)="updateMaterial($event)"> Toàn bộ da bò cao cấp
+                <br>
+                <input type="radio" name="c1" value="4.5" (change)="updateMaterial($event)"> Chất liệu nhập khẩu
+              </div>
+            </div>
+            <hr style="height:1px;border:none;background-color:#dfdfdf;" />
+  
+            <div class="row">
+              <div class="col col-sm-2">LOẠI CHÂN</div>
+              <div class="col col-sm-10">
+                <input type="radio" name="d1" value="400000" (change)="updateTypeOfFoot($event)"> Chân inox nhỏ
+                <br>
+                <input type="radio" name="d1" value="500000" (change)="updateTypeOfFoot($event)"> Chân inox lớn
+                <br>
+                <input type="radio" name="d1" value="600000" (change)="updateTypeOfFoot($event)"> Chân inox đặc biệt
+                <br>
+                <input type="radio" name="d1" value="200000" (change)="updateTypeOfFoot($event)"> Chân gỗ nhỏ/ nhựa
+                <br>
+                <input type="radio" name="d1" value="300000" (change)="updateTypeOfFoot($event)"> Chân gỗ nhỏ cao cấp
+                <br>
+                <input type="radio" name="d1" value="500000" (change)="updateTypeOfFoot($event)"> Chân gỗ đặc biệt
+                <br>
+                <input type="radio" name="d1" value="250000" (change)="updateTypeOfFoot($event)"> Chân sắt sơn tĩnh điện nhỏ
+                <br>
+                <input type="radio" name="d1" value="300000" (change)="updateTypeOfFoot($event)"> Chân sắt sơn tĩnh điện lớn
+                <br>
+                <input type="radio" name="d1" value="400000" (change)="updateTypeOfFoot($event)"> Chân sắt sơn tĩnh điện đặc biệt
+                <br>
+  
+              </div>
+            </div>
+          </div>
 
-              <form role="form">
-                <fieldset class="form-group">
-                  <label>Chiều dài băng thư giản/ sâu ngồi (mm)
-                    <span style="color:red">*</span>
-                  </label>
-                  <input class="form-control" type="number" [(ngModel)]="width" name="widthOfSofa">
-                  <p class="help-block">BĂNG/ĐƠN/VÒNG CUNG/BED=
-                    <850 NHẬP 0, BĂNG/ĐƠN/ VÒNG CUNG/BED> 850 NHẬP CHÊNH LỆCH; ĐÔN =
-                      <45 NHẬP 0, ĐÔN>45 NHẬP CHÊNH LỆCH</p>
-                </fieldset>
-              </form>
+          <div *ngIf="isRecliner()">
+            <div class="row">
+              <div class="col col-sm-2">CHẤT LIỆU CHÍNH</div>
+              <div class="col col-sm-10">
+                <input type="radio" name="c1" value="1" (change)="updateMaterial($event)"> Simili/ Vải thông thường
+                <br>
+                <input type="radio" name="c1" value="1.1" (change)="updateMaterial($event)"> Simili/ Vải cao cấp
+                <br>
+                <input type="radio" name="c1" value="1.8" (change)="updateMaterial($event)"> Da bò tiếp xúc thông thường
+                <br>
+                <input type="radio" name="c1" value="2.0" (change)="updateMaterial($event)"> Da bò tiếp xúc cao cấp
+                <br>
+                <input type="radio" name="c1" value="2.2" (change)="updateMaterial($event)"> Toàn bộ da bò thông thường
+                <br>
+                <input type="radio" name="c1" value="2.42" (change)="updateMaterial($event)"> Toàn bộ da bò cao cấp
+                <br>
+                <input type="radio" name="c1" value="3.3" (change)="updateMaterial($event)"> Chất liệu nhập khẩu
+              </div>
+            </div>
+            <hr style="height:1px;border:none;background-color:#dfdfdf;" />
+  
+            <div class="row">
+              <div class="col col-sm-2">LOẠI KHUNG</div>
+              <div class="col col-sm-10">
+                <input type="radio" name="d1" value="1" (change)="updateFrame($event)"> Khung cơ
+                <br>
+                <input type="radio" name="d1" value="2" (change)="updateFrame($event)"> Khung điện
+                <br>
+                <input type="radio" name="d1" value="3" (change)="updateFrame($event)"> Khung lắc lư
+                <br>
+  
+              </div>
             </div>
           </div>
           <hr style="height:1px;border:none;background-color:#dfdfdf;" />
-          <div class="row">
-            <div class="col col-sm-2">TỶ LỆ ĐỘ KHÓ </div>
-            <div class="col col-sm-10">
-              <input type="radio" name="b1" value="3.75" (change)="updateDifficult($event)"> Mẫu có sẵn thay đổi KT/ Mẫu mới tương tự 80% với mẫu có sẵn
-              <br>
-              <input type="radio" name="b1" value="4" (change)="updateDifficult($event)"> Mẫu mới có kiểu dáng đơn giản và không có nhiều chi tiết nhấn rút
-              <br>
-              <input type="radio" name="b1" value="4.125" (change)="updateDifficult($event)"> Mẫu mới có kiểu dáng tương đối đơn giản, nhiều chi tiết nhấn rút/ phụ kiện
-              <br>
-              <input type="radio" name="b1" value="4.250" (change)="updateDifficult($event)"> Mẫu mới có độ khó cao, nhiều chi tiết nhấn rút/ phụ kiện
-              <br>
-              <input type="radio" name="b1" value="4.375" (change)="updateDifficult($event)"> Mẫu mới rất khó, cầu kì, nhiều chi tiết nhấn rút/ phụ kiện
-              <br>
-            </div>
-          </div>
-          <hr style="height:1px;border:none;background-color:#dfdfdf;" />
-
-          <div class="row">
-            <div class="col col-sm-2">CHẤT LIỆU CHÍNH</div>
-            <div class="col col-sm-10">
-              <input type="radio" name="c1" value="1" (change)="updateMaterial($event)"> Simili/ Vải thông thường
-              <br>
-              <input type="radio" name="c1" value="1.1" (change)="updateMaterial($event)"> Simili/ Vải cao cấp
-              <br>
-              <input type="radio" name="c1" value="2.0" (change)="updateMaterial($event)"> Da bò tiếp xúc thông thường
-              <br>
-              <input type="radio" name="c1" value="2.2" (change)="updateMaterial($event)"> Da bò tiếp xúc cao cấp
-              <br>
-              <input type="radio" name="c1" value="3" (change)="updateMaterial($event)"> Toàn bộ da bò thông thường
-              <br>
-              <input type="radio" name="c1" value="3.3" (change)="updateMaterial($event)"> Toàn bộ da bò cao cấp
-              <br>
-              <input type="radio" name="c1" value="4.5" (change)="updateMaterial($event)"> Chất liệu nhập khẩu
-            </div>
-          </div>
-          <hr style="height:1px;border:none;background-color:#dfdfdf;" />
-
-          <div class="row">
-            <div class="col col-sm-2">LOẠI CHÂN</div>
-            <div class="col col-sm-10">
-              <input type="radio" name="d1" value="400000" (change)="updateTypeOfFoot($event)"> Chân inox nhỏ
-              <br>
-              <input type="radio" name="d1" value="500000" (change)="updateTypeOfFoot($event)"> Chân inox lớn
-              <br>
-              <input type="radio" name="d1" value="600000" (change)="updateTypeOfFoot($event)"> Chân inox đặc biệt
-              <br>
-              <input type="radio" name="d1" value="200000" (change)="updateTypeOfFoot($event)"> Chân gỗ nhỏ/ nhựa
-              <br>
-              <input type="radio" name="d1" value="300000" (change)="updateTypeOfFoot($event)"> Chân gỗ nhỏ cao cấp
-              <br>
-              <input type="radio" name="d1" value="500000" (change)="updateTypeOfFoot($event)"> Chân gỗ đặc biệt
-              <br>
-              <input type="radio" name="d1" value="250000" (change)="updateTypeOfFoot($event)"> Chân sắt sơn tĩnh điện nhỏ
-              <br>
-              <input type="radio" name="d1" value="300000" (change)="updateTypeOfFoot($event)"> Chân sắt sơn tĩnh điện lớn
-              <br>
-              <input type="radio" name="d1" value="400000" (change)="updateTypeOfFoot($event)"> Chân sắt sơn tĩnh điện đặc biệt
-              <br>
-
-          </div>
-          <hr style="height:1px;border:none;background-color:#dfdfdf;" />
-          <button (click)="calculatePrice()">anhly calculation</button>
+          <button (click)="isRecliner() ? calculatePriceRecliner() : calculatePrice()">anhly calculation</button>
           <label>số tiền: {{totalPrice | currency:'VND':'symbol':'4.2-2'}}</label>
         </div>
       </div>
     </div>
-  </div>

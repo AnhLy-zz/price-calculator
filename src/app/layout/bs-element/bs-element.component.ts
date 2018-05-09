@@ -66,10 +66,11 @@ export class BsElementComponent implements OnInit {
   imageSource: string;
   sofaName: string;
   difficult: string;
-  typeOfFood: string;
+  typeOfFoot: string;
   material: string;
   length: number;
   width: number;
+  frame: number;
   totalPrice: number;
 
   constructor(public route: ActivatedRoute) { }
@@ -78,6 +79,9 @@ export class BsElementComponent implements OnInit {
     this.id = this.route.snapshot.params['id'];
     this.imageSource = images[this.id].src;
     this.sofaName = images[this.id].name;
+    if (this.id === "5" || this.id === "7" || this.id === "10") {
+      this.difficult = "3.75";
+    }
   }
 
   updateDifficult(event: any) {
@@ -89,22 +93,43 @@ export class BsElementComponent implements OnInit {
   }
 
   updateTypeOfFoot(event: any) {
-    this.typeOfFood = event.target.value;
+    this.typeOfFoot = event.target.value;
   }
 
   calculatePrice() {
-    console.log('this.length', this.length);
-    console.log('this.width', this.width);
     let s = 0;
     if (this.id === "1") {
       s = this.length + this.width - 800;
     } else {
       s = this.length + this.width;
     }
-
     s = s / 1000;
-    let unitPrice = Number(this.difficult) * Number(this.material) + Number(this.typeOfFood);
+    let unitPrice = Number(images[this.id].price) * Number(this.difficult) * Number(this.material) + Number(this.typeOfFoot);
     this.totalPrice = s * unitPrice;
+  }
+
+  updateFrame(event) {
+    let typeOfFrame = event.target.value;
+    switch (typeOfFrame) {
+      case "1":
+        this.frame = 0;
+        break;
+      case "2":
+        if (this.id === "5") {
+          this.frame = 2000000;
+        } else {
+          this.frame = 3000000;
+        }
+        break;
+      default:
+        this.frame = 500000;
+        break
+
+    }
+  }
+
+  calculatePriceRecliner() {
+    this.totalPrice = Number(images[this.id].price) * Number(this.difficult) * Number(this.material) + this.frame;
   }
 
   isRecliner(): boolean {
