@@ -4,7 +4,8 @@
     "license": "MIT",
     "scripts": {
         "ng": "ng",
-        "start": "ng serve --ec true",
+        "start": "node server.js",
+        "dev": "ng serve --ec true",
         "build": "ng build --prod",
         "gitbuild": "ng build --prod --base /start-angular/SB-Admin-BS4-Angular-5/master/dist/",
         "test": "ng test",
