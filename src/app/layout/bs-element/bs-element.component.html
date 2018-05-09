@@ -11,7 +11,7 @@
         </div>
       </div>
     </div>
-    <div class="col col-sm-8">
+    <div *ngIf="!isRecliner()" class="col col-sm-8">
       <div class="card mb-3" style="height: 1000px;">
         <div class="card-header">
           CHỌN TÍNH THEO YÊU CẦU
@@ -64,24 +64,49 @@
           <div class="row">
             <div class="col col-sm-2">CHẤT LIỆU CHÍNH</div>
             <div class="col col-sm-10">
-              <input type="radio" name="c1" value="1"> Simili/ Vải thông thường
+              <input type="radio" name="c1" value="1" (change)="updateMaterial($event)"> Simili/ Vải thông thường
               <br>
-              <input type="radio" name="c1" value="1.1"> Simili/ Vải cao cấp
+              <input type="radio" name="c1" value="1.1" (change)="updateMaterial($event)"> Simili/ Vải cao cấp
               <br>
-              <input type="radio" name="c1" value="2.0"> Da bò tiếp xúc thông thường
+              <input type="radio" name="c1" value="2.0" (change)="updateMaterial($event)"> Da bò tiếp xúc thông thường
               <br>
-              <input type="radio" name="c1" value="2.2"> Da bò tiếp xúc cao cấp
+              <input type="radio" name="c1" value="2.2" (change)="updateMaterial($event)"> Da bò tiếp xúc cao cấp
               <br>
-              <input type="radio" name="c1" value="3"> Toàn bộ da bò thông thường
+              <input type="radio" name="c1" value="3" (change)="updateMaterial($event)"> Toàn bộ da bò thông thường
               <br>
-              <input type="radio" name="c1" value="3.3"> Toàn bộ da bò cao cấp
+              <input type="radio" name="c1" value="3.3" (change)="updateMaterial($event)"> Toàn bộ da bò cao cấp
               <br>
-              <input type="radio" name="c1" value="4.5"> Chất liệu nhập khẩu
+              <input type="radio" name="c1" value="4.5" (change)="updateMaterial($event)"> Chất liệu nhập khẩu
             </div>
           </div>
           <hr style="height:1px;border:none;background-color:#dfdfdf;" />
+
+          <div class="row">
+            <div class="col col-sm-2">LOẠI CHÂN</div>
+            <div class="col col-sm-10">
+              <input type="radio" name="d1" value="400000" (change)="updateTypeOfFoot($event)"> Chân inox nhỏ
+              <br>
+              <input type="radio" name="d1" value="500000" (change)="updateTypeOfFoot($event)"> Chân inox lớn
+              <br>
+              <input type="radio" name="d1" value="600000" (change)="updateTypeOfFoot($event)"> Chân inox đặc biệt
+              <br>
+              <input type="radio" name="d1" value="200000" (change)="updateTypeOfFoot($event)"> Chân gỗ nhỏ/ nhựa
+              <br>
+              <input type="radio" name="d1" value="300000" (change)="updateTypeOfFoot($event)"> Chân gỗ nhỏ cao cấp
+              <br>
+              <input type="radio" name="d1" value="500000" (change)="updateTypeOfFoot($event)"> Chân gỗ đặc biệt
+              <br>
+              <input type="radio" name="d1" value="250000" (change)="updateTypeOfFoot($event)"> Chân sắt sơn tĩnh điện nhỏ
+              <br>
+              <input type="radio" name="d1" value="300000" (change)="updateTypeOfFoot($event)"> Chân sắt sơn tĩnh điện lớn
+              <br>
+              <input type="radio" name="d1" value="400000" (change)="updateTypeOfFoot($event)"> Chân sắt sơn tĩnh điện đặc biệt
+              <br>
+
+          </div>
+          <hr style="height:1px;border:none;background-color:#dfdfdf;" />
           <button (click)="calculatePrice()">anhly calculation</button>
-          <label>số tiền: </label>
+          <label>số tiền: {{totalPrice | currency:'VND':'symbol':'4.2-2'}}</label>
         </div>
       </div>
     </div>
