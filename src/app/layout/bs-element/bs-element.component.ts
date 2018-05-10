@@ -98,7 +98,7 @@ export class BsElementComponent implements OnInit {
 
   calculatePrice() {
     let s = 0;
-    if (this.id === "1") {
+    if (this.id === "3") {
       s = this.length + this.width - 800;
     } else {
       s = this.length + this.width;
