@@ -2,15 +2,19 @@
   <app-page-header [heading]="'Charts'" [icon]="'fa-bar-chart-o'"></app-page-header>
   <div class="row">
     <div class="col col-sm-4">
-      <div class="card mb-3">
-        <div class="card-header">
-          {{sofaName}}
-        </div>
+      <div class="card">
+        <img class="card-img-top" [src]="imageSource">
         <div class="card-body">
-          <img [src]="imageSource">
+          <h5 class="card-title">{{sofaName}}</h5>
+          <button class="btn btn-primary" (click)="isRecliner() ? calculatePriceRecliner() : calculatePrice()">Tính giá tiền</button>
+          <br>
+          <label class="mt-3">Thành giá tiền chưa VAT:</label>
+          <br>
+          <label class="mt-3">{{totalPrice | currency:'VND':'symbol':'4.2-2'}}</label>
         </div>
       </div>
     </div>
+
     <div class="col col-sm-8">
       <div class="card mb-3" style="height: 100%;">
         <div class="card-header">
@@ -26,20 +30,16 @@
                     <label>Chiều dài băng ngồi (mm)
                       <span style="color:red">*</span>
                     </label>
-                    <input class="form-control" type="number" [(ngModel)]="length" name="lengthOfSofa">
-                    <p class="help-block">ĐÔN NHẬP CHIỀU DÀI NHẤT</p>
+                    <input placeholder="Nhập chiều dài nhất (length)" class="form-control" type="number" [(ngModel)]="length" name="lengthOfSofa">
                   </fieldset>
                 </form>
-  
+
                 <form role="form">
                   <fieldset class="form-group">
                     <label>Chiều dài băng thư giản/ sâu ngồi (mm)
                       <span style="color:red">*</span>
                     </label>
-                    <input class="form-control" type="number" [(ngModel)]="width" name="widthOfSofa">
-                    <p class="help-block">BĂNG/ĐƠN/VÒNG CUNG/BED=
-                      <850 NHẬP 0, BĂNG/ĐƠN/ VÒNG CUNG/BED> 850 NHẬP CHÊNH LỆCH; ĐÔN =
-                        <45 NHẬP 0, ĐÔN>45 NHẬP CHÊNH LỆCH</p>
+                    <input placeholder="Nhập chiều dài băng thư giản (width)" class="form-control" type="number" [(ngModel)]="width" name="widthOfSofa">
                   </fieldset>
                 </form>
               </div>
@@ -47,7 +47,7 @@
             <hr style="height:1px;border:none;background-color:#dfdfdf;" />
             <div class="row">
               <div class="col col-sm-2">TỶ LỆ ĐỘ KHÓ </div>
-              <div class="col col-sm-10">
+              <div class="col col-sm-10 ">
                 <input type="radio" name="b1" value="3.75" (change)="updateDifficult($event)"> Mẫu có sẵn thay đổi KT/ Mẫu mới tương tự 80% với mẫu có sẵn
                 <br>
                 <input type="radio" name="b1" value="4" (change)="updateDifficult($event)"> Mẫu mới có kiểu dáng đơn giản và không có nhiều chi tiết nhấn rút
@@ -56,12 +56,12 @@
                 <br>
                 <input type="radio" name="b1" value="4.250" (change)="updateDifficult($event)"> Mẫu mới có độ khó cao, nhiều chi tiết nhấn rút/ phụ kiện
                 <br>
-                <input type="radio" name="b1" value="4.375" (change)="updateDifficult($event)"> Mẫu mới rất khó, cầu kì, nhiều chi tiết nhấn rút/ phụ kiện
+                <input type="radio" name="b1" value="5" (change)="updateDifficult($event)"> Mẫu mới rất khó, cầu kì, nhiều chi tiết nhấn rút/ phụ kiện
                 <br>
               </div>
             </div>
             <hr style="height:1px;border:none;background-color:#dfdfdf;" />
-  
+
             <div class="row">
               <div class="col col-sm-2">CHẤT LIỆU CHÍNH</div>
               <div class="col col-sm-10">
@@ -81,7 +81,7 @@
               </div>
             </div>
             <hr style="height:1px;border:none;background-color:#dfdfdf;" />
-  
+
             <div class="row">
               <div class="col col-sm-2">LOẠI CHÂN</div>
               <div class="col col-sm-10">
@@ -103,7 +103,7 @@
                 <br>
                 <input type="radio" name="d1" value="400000" (change)="updateTypeOfFoot($event)"> Chân sắt sơn tĩnh điện đặc biệt
                 <br>
-  
+
               </div>
             </div>
           </div>
@@ -128,7 +128,7 @@
               </div>
             </div>
             <hr style="height:1px;border:none;background-color:#dfdfdf;" />
-  
+
             <div class="row">
               <div class="col col-sm-2">LOẠI KHUNG</div>
               <div class="col col-sm-10">
@@ -138,13 +138,11 @@
                 <br>
                 <input type="radio" name="d1" value="3" (change)="updateFrame($event)"> Khung lắc lư
                 <br>
-  
+
               </div>
             </div>
           </div>
-          <hr style="height:1px;border:none;background-color:#dfdfdf;" />
-          <button (click)="isRecliner() ? calculatePriceRecliner() : calculatePrice()">anhly calculation</button>
-          <label>số tiền: {{totalPrice | currency:'VND':'symbol':'4.2-2'}}</label>
+
         </div>
       </div>
     </div>

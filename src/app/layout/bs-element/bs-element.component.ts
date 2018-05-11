@@ -96,12 +96,30 @@ export class BsElementComponent implements OnInit {
     this.typeOfFoot = event.target.value;
   }
 
+  subtractWidth() {
+    switch (this.id) {
+      case "1":
+      case "2":
+      case "8":
+      case "9":
+        return this.width - 850;
+      case "6":
+        return this.width - 950;
+      case "4":
+        return this.width - 450;
+      default: 
+        return this.width;
+    }
+  }
+
   calculatePrice() {
     let s = 0;
+    let tempWidth = this.subtractWidth();
+    
     if (this.id === "3") {
-      s = this.length + this.width - 800;
+      s = this.length + tempWidth - 800;
     } else {
-      s = this.length + this.width;
+      s = this.length + tempWidth;
     }
     s = s / 1000;
     let unitPrice = Number(images[this.id].price) * Number(this.difficult) * Number(this.material) + Number(this.typeOfFoot);
