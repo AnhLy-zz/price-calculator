@@ -2,22 +2,22 @@
   <app-page-header [heading]="'Charts'" [icon]="'fa-bar-chart-o'"></app-page-header>
   <div class="row">
     <div class="col col-sm-4">
-      <div class="card">
+      <div class="card border-danger mb-3">
         <img class="card-img-top" [src]="imageSource">
         <div class="card-body">
-          <h5 class="card-title">{{sofaName}}</h5>
-          <button class="btn btn-outline-danger" (click)="isRecliner() ? calculatePriceRecliner() : calculatePrice()">Tính giá tiền</button>
+          <h5 class="card-title text-center">{{sofaName}}</h5>
+          <button class="col-sm-12 btn btn-outline-danger" (click)="isRecliner() ? calculatePriceRecliner() : calculatePrice()">Tính giá tiền</button>
           <br>
           <label class="mt-3">Thành giá tiền chưa VAT:</label>
           <br>
-          <label class="mt-3">{{totalPrice | currency:'VND':'symbol':'4.2-2'}}</label>
+          <h3 class="mt-2">{{totalPrice | currency:'VND':'symbol':'4.2-2'}}</h3>
         </div>
       </div>
     </div>
 
     <div class="col col-sm-8">
-      <div class="card mb-3" style="height: 100%;">
-        <div class="card-header">
+      <div class="card border-danger mb-3" style="height: 100%;">
+        <div class="card-header bg-danger font-weight-bold text-white">
           CHỌN TÍNH THEO YÊU CẦU
         </div>
         <div class="card-body">
@@ -30,7 +30,7 @@
                     <label>Chiều dài băng ngồi (mm)
                       <span style="color:red">*</span>
                     </label>
-                    <input placeholder="Nhập chiều dài nhất (length)" class="form-control" type="number" [(ngModel)]="length" name="lengthOfSofa">
+                    <input placeholder="Nhập chiều dài nhất (length)" class="form-control border-danger" type="number" [(ngModel)]="length" name="lengthOfSofa">
                   </fieldset>
                 </form>
 
@@ -39,69 +39,69 @@
                     <label>Chiều dài băng thư giản/ sâu ngồi (mm)
                       <span style="color:red">*</span>
                     </label>
-                    <input placeholder="Nhập chiều dài băng thư giản (width)" class="form-control" type="number" [(ngModel)]="width" name="widthOfSofa">
+                    <input placeholder="Nhập chiều sâu băng thư giản (width)" class="form-control border-danger" type="number" [(ngModel)]="width" name="widthOfSofa">
                   </fieldset>
                 </form>
               </div>
             </div>
-            <hr style="height:1px;border:none;background-color:#dfdfdf;" />
+            <hr style="height:1px;border:none;background-color:#dc3545;" />
             <div class="row">
               <div class="col col-sm-2">TỶ LỆ ĐỘ KHÓ </div>
               <div class="col col-sm-10 ">
-                <input type="radio" name="b1" value="3.75" (change)="updateDifficult($event)"> Mẫu có sẵn thay đổi KT/ Mẫu mới tương tự 80% với mẫu có sẵn
+                <input type="radio" name="b1" value="3.75" (change)="updateDifficult($event)" id="exampleRadios1"> <label for="exampleRadios1"> Mẫu có sẵn thay đổi KT/ Mẫu mới tương tự 80% với mẫu có sẵn </label>
                 <br>
-                <input type="radio" name="b1" value="4" (change)="updateDifficult($event)"> Mẫu mới có kiểu dáng đơn giản và không có nhiều chi tiết nhấn rút
+                <input type="radio" name="b1" value="4" (change)="updateDifficult($event)" id="exampleRadios2"> <label for="exampleRadios2"> Mẫu mới có kiểu dáng đơn giản và không có nhiều chi tiết nhấn rút </label>
                 <br>
-                <input type="radio" name="b1" value="4.125" (change)="updateDifficult($event)"> Mẫu mới có kiểu dáng tương đối đơn giản, nhiều chi tiết nhấn rút/ phụ kiện
+                <input type="radio" name="b1" value="4.125" (change)="updateDifficult($event)" id="exampleRadios3"> <label for="exampleRadios3"> Mẫu mới có kiểu dáng tương đối đơn giản, nhiều chi tiết nhấn rút/ phụ kiện </label>
                 <br>
-                <input type="radio" name="b1" value="4.250" (change)="updateDifficult($event)"> Mẫu mới có độ khó cao, nhiều chi tiết nhấn rút/ phụ kiện
+                <input type="radio" name="b1" value="4.250" (change)="updateDifficult($event)" id="exampleRadios4"> <label for="exampleRadios4"> Mẫu mới có độ khó cao, nhiều chi tiết nhấn rút/ phụ kiện </label>
                 <br>
-                <input type="radio" name="b1" value="5" (change)="updateDifficult($event)"> Mẫu mới rất khó, cầu kì, nhiều chi tiết nhấn rút/ phụ kiện
+                <input type="radio" name="b1" value="5" (change)="updateDifficult($event)" id="exampleRadios5"> <label for="exampleRadios5"> Mẫu mới rất khó, cầu kì, nhiều chi tiết nhấn rút/ phụ kiện </label>
                 <br>
               </div>
             </div>
-            <hr style="height:1px;border:none;background-color:#dfdfdf;" />
+            <hr style="height:1px;border:none;background-color:#dc3545;" />
 
             <div class="row">
               <div class="col col-sm-2">CHẤT LIỆU CHÍNH</div>
               <div class="col col-sm-10">
-                <input type="radio" name="c1" value="1" (change)="updateMaterial($event)"> Simili/ Vải thông thường
+                <input type="radio" name="c1" value="1" (change)="updateMaterial($event)" id="exampleRadios6"> <label for="exampleRadios6"> Simili/ Vải thông thường </label>
                 <br>
-                <input type="radio" name="c1" value="1.1" (change)="updateMaterial($event)"> Simili/ Vải cao cấp
+                <input type="radio" name="c1" value="1.1" (change)="updateMaterial($event)" id="exampleRadios7"> <label for="exampleRadios7"> Simili/ Vải cao cấp </label>
                 <br>
-                <input type="radio" name="c1" value="2.0" (change)="updateMaterial($event)"> Da bò tiếp xúc thông thường
+                <input type="radio" name="c1" value="2.0" (change)="updateMaterial($event)" id="exampleRadios8"> <label for="exampleRadios8"> Da bò tiếp xúc thông thường </label>
                 <br>
-                <input type="radio" name="c1" value="2.2" (change)="updateMaterial($event)"> Da bò tiếp xúc cao cấp
+                <input type="radio" name="c1" value="2.2" (change)="updateMaterial($event)" id="exampleRadios9"> <label for="exampleRadios9"> Da bò tiếp xúc cao cấp </label>
                 <br>
-                <input type="radio" name="c1" value="3" (change)="updateMaterial($event)"> Toàn bộ da bò thông thường
+                <input type="radio" name="c1" value="3" (change)="updateMaterial($event)" id="exampleRadios10"> <label for="exampleRadios10"> Toàn bộ da bò thông thường </label>
                 <br>
-                <input type="radio" name="c1" value="3.3" (change)="updateMaterial($event)"> Toàn bộ da bò cao cấp
+                <input type="radio" name="c1" value="3.3" (change)="updateMaterial($event)" id="exampleRadios11"> <label for="exampleRadios11"> Toàn bộ da bò cao cấp </label>
                 <br>
-                <input type="radio" name="c1" value="4.5" (change)="updateMaterial($event)"> Chất liệu nhập khẩu
+                <input type="radio" name="c1" value="4.5" (change)="updateMaterial($event)" id="exampleRadios12"> <label for="exampleRadios12"> Chất liệu nhập khẩu </label>
               </div>
             </div>
-            <hr style="height:1px;border:none;background-color:#dfdfdf;" />
+            <hr style="height:1px;border:none;background-color:#dc3545;" />
 
             <div class="row">
               <div class="col col-sm-2">LOẠI CHÂN</div>
               <div class="col col-sm-10">
-                <input type="radio" name="d1" value="400000" (change)="updateTypeOfFoot($event)"> Chân inox nhỏ
+                <input type="radio" name="d1" value="400000" (change)="updateTypeOfFoot($event)" id="exampleRadios13"> <label for="exampleRadios13"> Chân inox nhỏ </label>
                 <br>
-                <input type="radio" name="d1" value="500000" (change)="updateTypeOfFoot($event)"> Chân inox lớn
+                <input type="radio" name="d1" value="500000" (change)="updateTypeOfFoot($event)" id="exampleRadios14"> <label for="exampleRadios14"> Chân inox lớn </label>
                 <br>
-                <input type="radio" name="d1" value="600000" (change)="updateTypeOfFoot($event)"> Chân inox đặc biệt
+                <input type="radio" name="d1" value="600000" (change)="updateTypeOfFoot($event)" id="exampleRadios15"> <label for="exampleRadios15"> Chân inox đặc biệt </label>
                 <br>
-                <input type="radio" name="d1" value="200000" (change)="updateTypeOfFoot($event)"> Chân gỗ nhỏ/ nhựa
+                <input type="radio" name="d1" value="200000" (change)="updateTypeOfFoot($event)" id="exampleRadios16"> <label for="exampleRadios16"> Chân gỗ nhỏ/ nhựa </label>
                 <br>
-                <input type="radio" name="d1" value="300000" (change)="updateTypeOfFoot($event)"> Chân gỗ nhỏ cao cấp
+                <input type="radio" name="d1" value="300000" (change)="updateTypeOfFoot($event)" id="exampleRadios17"> <label for="exampleRadios17"> Chân gỗ nhỏ cao cấp </label>
                 <br>
-                <input type="radio" name="d1" value="500000" (change)="updateTypeOfFoot($event)"> Chân gỗ đặc biệt
+                <input type="radio" name="d1" value="500000" (change)="updateTypeOfFoot($event)" id="exampleRadios18"> <label for="exampleRadios18"> Chân gỗ đặc biệt </label>
                 <br>
-                <input type="radio" name="d1" value="250000" (change)="updateTypeOfFoot($event)"> Chân sắt sơn tĩnh điện nhỏ
+                <input type="radio" name="d1" value="250000" (change)="updateTypeOfFoot($event)" id="exampleRadios19"> <label for="exampleRadios19"> Chân sắt sơn tĩnh điện nhỏ </label>
                 <br>
-                <input type="radio" name="d1" value="300000" (change)="updateTypeOfFoot($event)"> Chân sắt sơn tĩnh điện lớn
+                <input type="radio" name="d1" value="300000" (change)="updateTypeOfFoot($event)" id="exampleRadios20"> <label for="exampleRadios20"> Chân sắt sơn tĩnh điện lớn </label>
                 <br>
-                <input type="radio" name="d1" value="400000" (change)="updateTypeOfFoot($event)"> Chân sắt sơn tĩnh điện đặc biệt
+                <input type="radio" name="d1" value="400000" (change)="updateTypeOfFoot($event)" id="exampleRadios21"> <label for="exampleRadios21"> Chân sắt sơn tĩnh điện đặc biệt </label>
                 <br>
 
               </div>
@@ -112,31 +112,31 @@
             <div class="row">
               <div class="col col-sm-2">CHẤT LIỆU CHÍNH</div>
               <div class="col col-sm-10">
-                <input type="radio" name="c1" value="1" (change)="updateMaterial($event)"> Simili/ Vải thông thường
+                <input type="radio" name="c1" value="1" (change)="updateMaterial($event)" id="exampleRadios22"> <label for="exampleRadios22"> Simili/ Vải thông thường </label>
                 <br>
-                <input type="radio" name="c1" value="1.1" (change)="updateMaterial($event)"> Simili/ Vải cao cấp
+                <input type="radio" name="c1" value="1.1" (change)="updateMaterial($event)" id="exampleRadios23"> <label for="exampleRadios23"> Simili/ Vải cao cấp </label>
                 <br>
-                <input type="radio" name="c1" value="1.8" (change)="updateMaterial($event)"> Da bò tiếp xúc thông thường
+                <input type="radio" name="c1" value="1.8" (change)="updateMaterial($event)" id="exampleRadios24"> <label for="exampleRadios24"></label> Da bò tiếp xúc thông thường </div>
                 <br>
-                <input type="radio" name="c1" value="2.0" (change)="updateMaterial($event)"> Da bò tiếp xúc cao cấp
+                <input type="radio" name="c1" value="2.0" (change)="updateMaterial($event)" id="exampleRadios25"> <label for="exampleRadios25"> Da bò tiếp xúc cao cấp </label>
                 <br>
-                <input type="radio" name="c1" value="2.2" (change)="updateMaterial($event)"> Toàn bộ da bò thông thường
+                <input type="radio" name="c1" value="2.2" (change)="updateMaterial($event)" id="exampleRadios26"> <label for="exampleRadios26">- Toàn bộ da bò thông thường </label>
                 <br>
-                <input type="radio" name="c1" value="2.42" (change)="updateMaterial($event)"> Toàn bộ da bò cao cấp
+                <input type="radio" name="c1" value="2.42" (change)="updateMaterial($event)" id="exampleRadios27"> <label for="exampleRadios27"> Toàn bộ da bò cao cấp </label>
                 <br>
-                <input type="radio" name="c1" value="3.3" (change)="updateMaterial($event)"> Chất liệu nhập khẩu
+                <input type="radio" name="c1" value="3.3" (change)="updateMaterial($event)" id="exampleRadios28"> <label for="exampleRadios28"> Chất liệu nhập khẩu </label>
               </div>
             </div>
-            <hr style="height:1px;border:none;background-color:#dfdfdf;" />
+            <hr style="height:1px;border:none;background-color:#dc3545;" />
 
             <div class="row">
               <div class="col col-sm-2">LOẠI KHUNG</div>
               <div class="col col-sm-10">
-                <input type="radio" name="d1" value="1" (change)="updateFrame($event)"> Khung cơ
+                <input type="radio" name="d1" value="1" (change)="updateFrame($event)" id="exampleRadios30"> <label for="exampleRadios30"> Khung cơ </label>
                 <br>
-                <input type="radio" name="d1" value="2" (change)="updateFrame($event)"> Khung điện
+                <input type="radio" name="d1" value="2" (change)="updateFrame($event)" id="exampleRadios31"> <label for="exampleRadios31"> Khung điện </label>
                 <br>
-                <input type="radio" name="d1" value="3" (change)="updateFrame($event)"> Khung lắc lư
+                <input type="radio" name="d1" value="3" (change)="updateFrame($event)" id="exampleRadios32"> <label for="exampleRadios32"> Khung lắc lư </label>
                 <br>
 
               </div>

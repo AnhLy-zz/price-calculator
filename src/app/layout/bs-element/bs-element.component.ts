@@ -58,7 +58,6 @@ let images = {
 @Component({
   selector: 'app-bs-element',
   templateUrl: './bs-element.component.html',
-  styleUrls: ['./bs-element.component.scss'],
   animations: [routerTransition()]
 })
 export class BsElementComponent implements OnInit {
@@ -102,11 +101,23 @@ export class BsElementComponent implements OnInit {
       case "2":
       case "8":
       case "9":
-        return this.width - 850;
+        if (this.width <= 850) {
+          return 0;
+        } else {
+          return this.width - 850;
+        }
       case "6":
-        return this.width - 950;
+        if (this.width <= 950) {
+          return 0;
+        } else {
+          return this.width - 850;
+        }
       case "4":
-        return this.width - 450;
+        if (this.width <= 450) {
+          return 0;
+        } else {
+          return this.width - 850;
+        }
       default: 
         return this.width;
     }
