@@ -58,7 +58,8 @@ let images = {
 @Component({
   selector: 'app-bs-element',
   templateUrl: './bs-element.component.html',
-  animations: [routerTransition()]
+  animations: [routerTransition()],
+  styleUrls: ['../charts/charts.component.scss'],
 })
 export class BsElementComponent implements OnInit {
   id: string;
@@ -71,6 +72,7 @@ export class BsElementComponent implements OnInit {
   width: number;
   frame: number;
   totalPrice: number;
+  notification: string;
 
   constructor(public route: ActivatedRoute) { }
 
@@ -101,32 +103,35 @@ export class BsElementComponent implements OnInit {
       case "2":
       case "8":
       case "9":
-        if (this.width <= 850) {
-          return 0;
-        } else {
-          return this.width - 850;
-        }
+        if (this.width <= 850) return 0;
+        return this.width - 850;
       case "6":
-        if (this.width <= 950) {
-          return 0;
-        } else {
-          return this.width - 850;
-        }
+        if (this.width <= 900) return 0;
+        return this.width - 900;
       case "4":
-        if (this.width <= 450) {
-          return 0;
-        } else {
-          return this.width - 850;
-        }
-      default: 
+        if (this.width <= 450) return 0;
+        return this.width - 450;
+      default:
         return this.width;
     }
   }
 
-  calculatePrice() {
-    let s = 0;
-    let tempWidth = this.subtractWidth();
+  checkingData():boolean {
+    if (!this.length || !this.width || this.length === 0 || this.width === 0) {
+      this.notification = "Vui lòng nhập đầy đủ thông tin chiều dài & rộng"
+      setTimeout(() => { this.notification = null; }, 2500);
+      return false;
+    }
     
+    return true;
+  }
+
+  calculatePrice() {
+    this.totalPrice = null;
+    let s = 0;
+    if (!this.checkingData()) return;
+    let tempWidth = this.subtractWidth();
+
     if (this.id === "3") {
       s = this.length + tempWidth - 800;
     } else {
