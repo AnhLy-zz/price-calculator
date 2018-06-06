@@ -31,4 +31,10 @@ export class LoginComponent implements OnInit {
             setTimeout(() => { this.notification = null; }, 2500);
         }
     }
+
+    handleKeyDown(event: any) {
+        if (event.keyCode === 13) {
+            this.onLoggedin()
+        }
+    }
 }
