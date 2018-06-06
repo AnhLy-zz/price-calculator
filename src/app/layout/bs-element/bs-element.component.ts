@@ -59,7 +59,7 @@ let images = {
   selector: 'app-bs-element',
   templateUrl: './bs-element.component.html',
   animations: [routerTransition()],
-  styleUrls: ['../charts/charts.component.scss'],
+  styleUrls: ['./bs-element.component.scss'],
 })
 export class BsElementComponent implements OnInit {
   id: string;

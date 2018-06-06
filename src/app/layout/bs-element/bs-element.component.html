@@ -3,7 +3,7 @@
   <nav aria-label="breadcrumb bg-light">
     <ol class="breadcrumb bg-light">
       <li class="breadcrumb-item">
-        <a [routerLink]="['/charts']" [routerLinkActive]="['router-link-active']">Sofa theo yêu cầu</a>
+        <a [routerLink]="['/calculate/request']" [routerLinkActive]="['router-link-active']">Sofa theo yêu cầu</a>
       </li>
       <li class="breadcrumb-item active" aria-current="page">{{sofaName}}</li>
     </ol>
@@ -14,14 +14,12 @@
   <div class="row mb-5">
     <div class="col col-sm-4">
       <div class="card border-danger mb-3">
-        <img class="" [src]="imageSource">
+        <img class="rounded" [src]="imageSource">
         <div class="card-body">
           <h5 class="card-title text-center">{{sofaName}}</h5>
           <button class="col-sm-12 btn btn-outline-danger font-weight-bold" (click)="isRecliner() ? calculatePriceRecliner() : calculatePrice()">Tính giá tiền</button>
-          <br>
           <div *ngIf="totalPrice">
             <label class="d-inline" class="mt-5">Giá bán có VAT:</label>
-            <br>
             <h3 class="mt-2">{{totalPrice / 0.9 | currency:'VND':'symbol':'4.2-2'}}</h3>
           </div>
         </div>
@@ -38,7 +36,6 @@
             <h6>
               THÔNG TIN YÊU CẦU NHẬP
             </h6>
-            <br>
             <div>
               <form role="form">
                 <fieldset class="form-group">
@@ -61,23 +58,30 @@
             <hr style="height:1px;border:none;background-color:#dc3545;" />
             <div>
               <h6>TỶ LỆ ĐỘ KHÓ </h6>
-              <br>
               <div>
-                <input type="radio" name="b1" value="3.75" (change)="updateDifficult($event)" id="exampleRadios1">
-                <label class="d-inline" for="exampleRadios1"> Mẫu có sẵn thay đổi KT/ Mẫu mới tương tự 80% với mẫu có sẵn </label>
-                <br>
-                <input type="radio" name="b1" value="4" (change)="updateDifficult($event)" id="exampleRadios2">
-                <label class="d-inline" for="exampleRadios2"> Mẫu mới có kiểu dáng đơn giản và không có nhiều chi tiết nhấn rút </label>
-                <br>
-                <input type="radio" name="b1" value="4.125" (change)="updateDifficult($event)" id="exampleRadios3">
-                <label class="d-inline" for="exampleRadios3"> Mẫu mới có kiểu dáng tương đối đơn giản, nhiều chi tiết nhấn rút/ phụ kiện</label>
-                <br>
-                <input type="radio" name="b1" value="4.250" (change)="updateDifficult($event)" id="exampleRadios4">
-                <label class="d-inline" for="exampleRadios4"> Mẫu mới có độ khó cao, nhiều chi tiết nhấn rút/ phụ kiện </label>
-                <br>
-                <input type="radio" name="b1" value="5" (change)="updateDifficult($event)" id="exampleRadios5">
-                <label class="d-inline" for="exampleRadios5"> Mẫu mới rất khó, cầu kì, nhiều chi tiết nhấn rút/ phụ kiện </label>
-                <br>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="b1" value="3.75" (change)="updateDifficult($event)"
+                    id="exampleRadios1">
+                  <label class="custom-control-label" for="exampleRadios1"> Mẫu có sẵn thay đổi KT/ Mẫu mới tương tự 80% với mẫu có sẵn </label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="b1" value="4" (change)="updateDifficult($event)" id="exampleRadios2">
+                  <label class="custom-control-label" for="exampleRadios2"> Mẫu mới có kiểu dáng đơn giản và không có nhiều chi tiết nhấn rút </label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="b1" value="4.125" (change)="updateDifficult($event)"
+                    id="exampleRadios3">
+                  <label class="custom-control-label" for="exampleRadios3"> Mẫu mới có kiểu dáng tương đối đơn giản, nhiều chi tiết nhấn rút/ phụ kiện</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="b1" value="4.250" (change)="updateDifficult($event)"
+                    id="exampleRadios4">
+                  <label class="custom-control-label" for="exampleRadios4"> Mẫu mới có độ khó cao, nhiều chi tiết nhấn rút/ phụ kiện </label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="b1" value="5" (change)="updateDifficult($event)" id="exampleRadios5">
+                  <label class="custom-control-label" for="exampleRadios5"> Mẫu mới rất khó, cầu kì, nhiều chi tiết nhấn rút/ phụ kiện </label>
+                </div>
               </div>
 
             </div>
@@ -85,63 +89,92 @@
 
             <div>
               <h6>CHẤT LIỆU CHÍNH</h6>
-              <br>
               <div>
-                <input type="radio" name="c1" value="1" (change)="updateMaterial($event)" id="exampleRadios6">
-                <label class="d-inline" for="exampleRadios6"> Simili/ Vải thông thường</label>
-                <br>
-                <input type="radio" name="c1" value="1.1" (change)="updateMaterial($event)" id="exampleRadios7">
-                <label class="d-inline" for="exampleRadios7"> Simili/ Vải cao cấp </label>
-                <br>
-                <input type="radio" name="c1" value="2.0" (change)="updateMaterial($event)" id="exampleRadios8">
-                <label class="d-inline" for="exampleRadios8"> Da bò tiếp xúc thông thường</label>
-                <br>
-                <input type="radio" name="c1" value="2.2" (change)="updateMaterial($event)" id="exampleRadios9">
-                <label class="d-inline" for="exampleRadios9"> Da bò tiếp xúc cao cấp </label>
-                <br>
-                <input type="radio" name="c1" value="3" (change)="updateMaterial($event)" id="exampleRadios10">
-                <label class="d-inline" for="exampleRadios10"> Toàn bộ da bò thông thường</label>
-                <br>
-                <input type="radio" name="c1" value="3.3" (change)="updateMaterial($event)" id="exampleRadios11">
-                <label class="d-inline" for="exampleRadios11"> Toàn bộ da bò cao cấp </label>
-                <br>
-                <input type="radio" name="c1" value="4.5" (change)="updateMaterial($event)" id="exampleRadios12">
-                <label class="d-inline" for="exampleRadios12"> Chất liệu nhập khẩu </label>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="c1" value="1" (change)="updateMaterial($event)" id="exampleRadios6">
+                  <label class="custom-control-label" for="exampleRadios6"> Simili/ Vải thông thường</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="c1" value="1.1" (change)="updateMaterial($event)"
+                    id="exampleRadios7">
+                  <label class="custom-control-label" for="exampleRadios7"> Simili/ Vải cao cấp </label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="c1" value="2.0" (change)="updateMaterial($event)"
+                    id="exampleRadios8">
+                  <label class="custom-control-label" for="exampleRadios8"> Da bò tiếp xúc thông thường</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="c1" value="2.2" (change)="updateMaterial($event)"
+                    id="exampleRadios9">
+                  <label class="custom-control-label" for="exampleRadios9"> Da bò tiếp xúc cao cấp </label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="c1" value="3" (change)="updateMaterial($event)" id="exampleRadios10">
+                  <label class="custom-control-label" for="exampleRadios10"> Toàn bộ da bò thông thường</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="c1" value="3.3" (change)="updateMaterial($event)"
+                    id="exampleRadios11">
+                  <label class="custom-control-label" for="exampleRadios11"> Toàn bộ da bò cao cấp </label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="c1" value="4.5" (change)="updateMaterial($event)"
+                    id="exampleRadios12">
+                  <label class="custom-control-label" for="exampleRadios12"> Chất liệu nhập khẩu </label>
+                </div>
               </div>
             </div>
             <hr style="height:1px;border:none;background-color:#dc3545;" />
 
             <div>
               <h6>LOẠI CHÂN</h6>
-              <br>
               <div>
-                <input type="radio" name="d1" value="400000" (change)="updateTypeOfFoot($event)" id="exampleRadios13">
-                <label class="d-inline" for="exampleRadios13"> Chân inox nhỏ </label>
-                <br>
-                <input type="radio" name="d1" value="500000" (change)="updateTypeOfFoot($event)" id="exampleRadios14">
-                <label class="d-inline" for="exampleRadios14"> Chân inox lớn </label>
-                <br>
-                <input type="radio" name="d1" value="600000" (change)="updateTypeOfFoot($event)" id="exampleRadios15">
-                <label class="d-inline" for="exampleRadios15"> Chân inox đặc biệt </label>
-                <br>
-                <input type="radio" name="d1" value="200000" (change)="updateTypeOfFoot($event)" id="exampleRadios16">
-                <label class="d-inline" for="exampleRadios16"> Chân gỗ nhỏ/ nhựa </label>
-                <br>
-                <input type="radio" name="d1" value="300000" (change)="updateTypeOfFoot($event)" id="exampleRadios17">
-                <label class="d-inline" for="exampleRadios17"> Chân gỗ nhỏ cao cấp </label>
-                <br>
-                <input type="radio" name="d1" value="500000" (change)="updateTypeOfFoot($event)" id="exampleRadios18">
-                <label class="d-inline" for="exampleRadios18"> Chân gỗ đặc biệt </label>
-                <br>
-                <input type="radio" name="d1" value="250000" (change)="updateTypeOfFoot($event)" id="exampleRadios19">
-                <label class="d-inline" for="exampleRadios19"> Chân sắt sơn tĩnh điện nhỏ </label>
-                <br>
-                <input type="radio" name="d1" value="300000" (change)="updateTypeOfFoot($event)" id="exampleRadios20">
-                <label class="d-inline" for="exampleRadios20"> Chân sắt sơn tĩnh điện lớn </label>
-                <br>
-                <input type="radio" name="d1" value="400000" (change)="updateTypeOfFoot($event)" id="exampleRadios21">
-                <label class="d-inline" for="exampleRadios21"> Chân sắt sơn tĩnh điện đặc biệt </label>
-                <br>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="d1" value="400000" (change)="updateTypeOfFoot($event)"
+                    id="exampleRadios13">
+                  <label class="custom-control-label" for="exampleRadios13"> Chân inox nhỏ </label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="d1" value="500000" (change)="updateTypeOfFoot($event)"
+                    id="exampleRadios14">
+                  <label class="custom-control-label" for="exampleRadios14"> Chân inox lớn </label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="d1" value="600000" (change)="updateTypeOfFoot($event)"
+                    id="exampleRadios15">
+                  <label class="custom-control-label" for="exampleRadios15"> Chân inox đặc biệt </label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="d1" value="200000" (change)="updateTypeOfFoot($event)"
+                    id="exampleRadios16">
+                  <label class="custom-control-label" for="exampleRadios16"> Chân gỗ nhỏ/ nhựa </label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="d1" value="300000" (change)="updateTypeOfFoot($event)"
+                    id="exampleRadios17">
+                  <label class="custom-control-label" for="exampleRadios17"> Chân gỗ nhỏ cao cấp </label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="d1" value="500000" (change)="updateTypeOfFoot($event)"
+                    id="exampleRadios18">
+                  <label class="custom-control-label" for="exampleRadios18"> Chân gỗ đặc biệt </label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="d1" value="250000" (change)="updateTypeOfFoot($event)"
+                    id="exampleRadios19">
+                  <label class="custom-control-label" for="exampleRadios19"> Chân sắt sơn tĩnh điện nhỏ </label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="d1" value="300000" (change)="updateTypeOfFoot($event)"
+                    id="exampleRadios20">
+                  <label class="custom-control-label" for="exampleRadios20"> Chân sắt sơn tĩnh điện lớn </label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="d1" value="400000" (change)="updateTypeOfFoot($event)"
+                    id="exampleRadios21">
+                  <label class="custom-control-label" for="exampleRadios21"> Chân sắt sơn tĩnh điện đặc biệt </label>
+                </div>
               </div>
 
             </div>
@@ -150,44 +183,60 @@
           <div *ngIf="isRecliner()">
             <div>
               <h6>CHẤT LIỆU CHÍNH</h6>
-              <br>
               <div>
-                <input type="radio" name="c1" value="1" (change)="updateMaterial($event)" id="exampleRadios22">
-                <label class="d-inline" for="exampleRadios22"> Simili/ Vải thông thường</label>
-                <br>
-                <input type="radio" name="c1" value="1.1" (change)="updateMaterial($event)" id="exampleRadios23">
-                <label class="d-inline" for="exampleRadios23"> Simili/ Vải cao cấp </label>
-                <br>
-                <input type="radio" name="c1" value="1.8" (change)="updateMaterial($event)" id="exampleRadios24">
-                <label class="d-inline" for="exampleRadios24"> Da bò tiếp xúc thông thường </label>
-                <br>
-                <input type="radio" name="c1" value="2.0" (change)="updateMaterial($event)" id="exampleRadios25">
-                <label class="d-inline" for="exampleRadios25"> Da bò tiếp xúc cao cấp </label>
-                <br>
-                <input type="radio" name="c1" value="2.2" (change)="updateMaterial($event)" id="exampleRadios26">
-                <label class="d-inline" for="exampleRadios26"> Toàn bộ da bò thông thường </label>
-                <br>
-                <input type="radio" name="c1" value="2.42" (change)="updateMaterial($event)" id="exampleRadios27">
-                <label class="d-inline" for="exampleRadios27"> Toàn bộ da bò cao cấp </label>
-                <br>
-                <input type="radio" name="c1" value="3.3" (change)="updateMaterial($event)" id="exampleRadios28">
-                <label class="d-inline" for="exampleRadios28"> Chất liệu nhập khẩu </label>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="c1" value="1" (change)="updateMaterial($event)" id="exampleRadios22">
+                  <label class="custom-control-label" for="exampleRadios22"> Simili/ Vải thông thường</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="c1" value="1.1" (change)="updateMaterial($event)"
+                    id="exampleRadios23">
+                  <label class="custom-control-label" for="exampleRadios23"> Simili/ Vải cao cấp </label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="c1" value="1.8" (change)="updateMaterial($event)"
+                    id="exampleRadios24">
+                  <label class="custom-control-label" for="exampleRadios24"> Da bò tiếp xúc thông thường </label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="c1" value="2.0" (change)="updateMaterial($event)"
+                    id="exampleRadios25">
+                  <label class="custom-control-label" for="exampleRadios25"> Da bò tiếp xúc cao cấp </label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="c1" value="2.2" (change)="updateMaterial($event)"
+                    id="exampleRadios26">
+                  <label class="custom-control-label" for="exampleRadios26"> Toàn bộ da bò thông thường </label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="c1" value="2.42" (change)="updateMaterial($event)"
+                    id="exampleRadios27">
+                  <label class="custom-control-label" for="exampleRadios27"> Toàn bộ da bò cao cấp </label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="c1" value="3.3" (change)="updateMaterial($event)"
+                    id="exampleRadios28">
+                  <label class="custom-control-label" for="exampleRadios28"> Chất liệu nhập khẩu </label>
+                </div>
               </div>
             </div>
             <hr style="height:1px;border:none;background-color:#dc3545;" />
 
             <div>
               <h6>LOẠI KHUNG</h6>
-              <br>
               <div>
-                <input type="radio" name="d1" value="1" (change)="updateFrame($event)" id="exampleRadios30">
-                <label class="d-inline" for="exampleRadios30"> Khung cơ </label>
-                <br>
-                <input type="radio" name="d1" value="2" (change)="updateFrame($event)" id="exampleRadios31">
-                <label class="d-inline" for="exampleRadios31"> Khung điện </label>
-                <br>
-                <input type="radio" name="d1" value="3" (change)="updateFrame($event)" id="exampleRadios32">
-                <label class="d-inline" for="exampleRadios32"> Khung lắc lư </label>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="d1" value="1" (change)="updateFrame($event)" id="exampleRadios30">
+                  <label class="custom-control-label" for="exampleRadios30"> Khung cơ </label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="d1" value="2" (change)="updateFrame($event)" id="exampleRadios31">
+                  <label class="custom-control-label" for="exampleRadios31"> Khung điện </label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="d1" value="3" (change)="updateFrame($event)" id="exampleRadios32">
+                  <label class="custom-control-label" for="exampleRadios32"> Khung lắc lư </label>
+                </div>
               </div>
             </div>
           </div>

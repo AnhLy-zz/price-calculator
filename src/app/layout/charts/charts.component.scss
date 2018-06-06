@@ -3,3 +3,12 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+.btn-outline-danger {
+    border-radius: 1.25rem !important;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    border: 1px solid red;
+}
