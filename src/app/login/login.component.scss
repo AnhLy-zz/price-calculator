@@ -1,4 +1,4 @@
-$topnav-background-color: #222;
+$topnav-background-color: #444655;
 :host {
     display: block;
 }
@@ -58,7 +58,8 @@ $topnav-background-color: #222;
         font-weight: 300;
         margin-top: 20px;
         margin-bottom: 10px;
-        font-size: 36px;
+        font-size: 45px;
+        font-family: "Nunito", sans-serif;
         small {
             color: rgba(255, 255, 255, 0.7);
         }

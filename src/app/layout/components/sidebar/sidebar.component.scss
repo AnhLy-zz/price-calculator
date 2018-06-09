@@ -1,4 +1,4 @@
-$topnav-background-color: #222;
+$topnav-background-color: #444655;
 .sidebar {
     border-radius: 0;
     position: fixed;
@@ -32,16 +32,16 @@ $topnav-background-color: #222;
             }
         }
         a:hover {
-            background: darken($topnav-background-color, 5%);
+            background: #4080FF;
             color: #fff;
+            opacity: 0.6;
         }
         a.router-link-active {
-            background: darken($topnav-background-color, 5%);
+            background: #4080FF;
             color: #fff;
         }
         .header-fields {
             padding-top: 10px;
-        
             > .list-group-item:first-child {
                 border-top: 1px solid rgba(255, 255, 255, 0.2);
             }

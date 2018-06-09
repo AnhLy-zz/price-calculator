@@ -74,7 +74,9 @@ export class BsElementComponent implements OnInit {
   totalPrice: number;
   notification: string;
 
-  constructor(public route: ActivatedRoute) { }
+  constructor(public route: ActivatedRoute) {
+    window.onscroll = () => { this.scrollFunction() };
+  }
 
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
@@ -116,13 +118,13 @@ export class BsElementComponent implements OnInit {
     }
   }
 
-  checkingData():boolean {
+  checkingData(): boolean {
     if (!this.length || !this.width || this.length === 0 || this.width === 0) {
       this.notification = "Vui lòng nhập đầy đủ thông tin chiều dài & rộng"
       setTimeout(() => { this.notification = null; }, 2500);
       return false;
     }
-    
+
     return true;
   }
 
@@ -171,5 +173,29 @@ export class BsElementComponent implements OnInit {
       return true;
     }
     return false;
+  }
+
+  scrollFunction() {
+    if (document.getElementById("scrollToTop") === null) {
+      return
+    }
+    if (document.documentElement.scrollTop > 20) {
+      document.getElementById("scrollToTop").style.display = "block";
+    } else {
+      document.getElementById("scrollToTop").style.display = "none";
+    }
+  }
+
+  topFunction() {
+    const smoothScroll = (h) => {
+      let i = h || 0;
+      if (i >= 0) {
+        setTimeout(() => {
+          window.scrollTo(0, i);
+          smoothScroll(i - 10);
+        }, 10);
+      }
+    };
+    smoothScroll(document.documentElement.scrollTop);
   }
 }

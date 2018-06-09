@@ -8,6 +8,7 @@
       <li class="breadcrumb-item active" aria-current="page">{{sofaName}}</li>
     </ol>
   </nav>
+  <button (click)="topFunction()" id="scrollToTop" title="Go to top">Về đầu trang</button>
   <div *ngIf="notification" class="alert alert-warning col-sm-12" role="alert">
     {{notification}}
   </div>
